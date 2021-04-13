@@ -1,0 +1,80 @@
+[
+  {
+    "title": "General",
+    "is_heading": true,
+    "is_active": false,
+    "class_name": "",
+    "is_icon_class": true,
+    "icon": ""
+  },
+  {
+    "title": "Dashboard",
+    "is_heading": false,
+    "is_active": true,
+    "class_name": "",
+    "is_icon_class": true,
+    "icon": "ri-home-4-line",
+    "link": "/dashboard"
+  },
+  {
+    "title": "Releases",
+    "is_heading": true,
+    "is_active": false,
+    "class_name": "",
+    "is_icon_class": true,
+    "icon": ""
+  },
+  {
+    "title": "Tasks",
+    "is_heading": false,
+    "is_active": true,
+    "class_name": "",
+    "is_icon_class": true,
+    "icon": "ri-pencil-ruler-line",
+    "link": "/task"
+  },
+  {
+    "title": "Captcha",
+    "is_heading": false,
+    "is_active": true,
+    "class_name": "",
+    "is_icon_class": true,
+    "icon": "ri-profile-line",
+    "link": "/captcha"
+  },
+  {
+    "title": "Proxies",
+    "is_heading": false,
+    "is_active": true,
+    "class_name": "",
+    "is_icon_class": true,
+    "icon": "ri-table-line",
+    "link": "/proxies"
+  },
+  {
+    "title": "Profiles",
+    "is_heading": false,
+    "is_active": true,
+    "class_name": "",
+    "is_icon_class": true,
+    "icon": "ri-pie-chart-box-line",
+    "link": "/profiles"
+  },
+  {
+    "title": "Settings",
+    "is_heading": true,
+    "is_active": false,
+    "class_name": "",
+    "is_icon_class": true,
+    "icon": ""
+  },
+  {
+    "title": "Settings",
+    "is_heading": false,
+    "is_active": true,
+    "class_name": "",
+    "is_icon_class": true,
+    "icon": "ri-pie-chart-box-line",
+    "link": "/setting"
+  }
+]
