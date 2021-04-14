@@ -13,7 +13,7 @@ import ApexCharts from 'apexcharts'
 import NativeSelect from '@material-ui/core/NativeSelect';
 import InputBase from '@material-ui/core/InputBase';
 
-import logoImage from '../assets/images/logo.png'
+import logoImage from '../assets/images/page-img/12.jpg'
 
 export default function DashboardPage() {
   const dispatch = useDispatch();
@@ -100,8 +100,13 @@ export default function DashboardPage() {
     for (var i = 0; i < 30; i++) {
       indents.push(
       <Card style={{ margin: 20, backgroundColor:'#1e2128', padding:10}}>
-        <CardBody>
-          <Image src={logoImage} rounded />
+        <CardBody style={{padding:0, display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center'}} >
+          <Image style={{width:60, height:60}} src={logoImage} rounded />
+          <div style={{textAlign:'right', flexDirection:'column', display:'flex'}}>
+            <span style={{color:'white'}}>Air Jordan 1 University Blue</span>
+            <span style={{color:'white'}}>Footlocker CA</span>
+            <span>Puchased for 200$ on 11.02.21</span>
+          </div>
         </CardBody>
       </Card>);
     }
