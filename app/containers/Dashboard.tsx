@@ -99,7 +99,7 @@ export default function DashboardPage() {
     var indents = [];
     for (var i = 0; i < 30; i++) {
       indents.push(
-      <Card style={{ margin: 20, backgroundColor:'#1e2128', padding:10}}>
+      <Card style={{marginLeft:0, margin: 20, backgroundColor:'#1e2128', padding:10}} key={i+"index"}>
         <CardBody style={{padding:0, display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center'}} >
           <Image style={{width:60, height:60}} src={logoImage} rounded />
           <div style={{textAlign:'right', flexDirection:'column', display:'flex'}}>
@@ -162,7 +162,7 @@ export default function DashboardPage() {
           <div className="log-part" style={{ padding: 20 }}>
             <div className="log-name" style={{ alignItems: 'center' }}>
               <span style={{ fontSize: 30 }}>Update Log</span>
-              <Button color="primary" style={{ marginLeft: 30 }}>Refresh</Button>
+              <Button style={{ marginLeft: 30, backgroundColor:'#375dad', border:'none'}}>Refresh</Button>
             </div>
             <Card style={{ marginTop: 30, backgroundColor: '#1e2128', borderRadius: 10 }}>
               <CardBody >
