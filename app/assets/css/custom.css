@@ -345,7 +345,7 @@ a:hover{text-decoration: none;}
 /*---------------------------------------------------------------------
                               Content Page
 -----------------------------------------------------------------------*/
-.content-page {margin-left: 260px; overflow: hidden; padding: 0px 15px 0; min-height: 100vh; -webkit-transition: all 0.3s ease-out 0s; -moz-transition: all 0.3s ease-out 0s; -ms-transition: all 0.3s ease-out 0s; -o-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s; }
+.content-page {margin-left: 260px; overflow: hidden; padding: 20px; min-height: 100vh; -webkit-transition: all 0.3s ease-out 0s; -moz-transition: all 0.3s ease-out 0s; -ms-transition: all 0.3s ease-out 0s; -o-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s; }
 .iq-user-dropdown { width: 350px; }
 body.sidebar-main .content-page, body.sidebar-main .iq-footer { margin-left: 80px; }
 body.sidebar-main .iq-sidebar-logo { width: 80px; }
