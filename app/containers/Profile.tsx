@@ -100,30 +100,112 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      <Row>
+      <Row style={{ marginTop: 20 }}>
         <Col sm="12" md="12" lg="12" xl="8" >
           <Row>
             <Col sm="6" md="6" lg="6" xl="6" >
-              <div>
-
+              <Card style={{ backgroundColor: '#4773ca', borderRadius: 5 }}>
+                <CardBody>
+                  <div style={{ flexDirection: 'column', display: 'flex' }}>
+                    <span style={{ color: 'white', fontSize: 14 }}>Main</span>
+                    <span style={{ color: 'white', fontSize: 12 }}>John Doe</span>
+                  </div>
+                  <div style={{ flexDirection: 'column', display: 'flex', marginTop: 20 }}>
+                    <span style={{ color: 'white', fontSize: 14 }}>Ending in 0419</span>
+                    <span style={{ color: 'white', fontSize: 12 }}>1000 Viper Street</span>
+                  </div>
+                  <div style={{ flexDirection: 'row', display: 'flex', marginTop: 20, alignItems: 'center', justifyContent: 'space-between' }}>
+                    <span style={{ color: 'white', fontSize: 20 }}>VISA</span>
+                    <div style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', fontSize: 18, color: 'white' }}>
+                      <i className="fa fa-copy mr-4" />
+                      <i className="fa fa-pencil mr-4" />
+                      <i className="fa fa-trash" />
+                    </div>
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col sm="6" md="6" lg="6" xl="6" >
+              <div><span style={{ color: 'white', fontSize: 20 }}>Card Information</span></div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"Card Number"} style={{ borderRadius: 5, width: '100%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white' }} />
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"Card Month"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginRight: '5%' }} />
+                <input placeholder={"Card Year"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginLeft: '5%' }} />
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"CVV"} style={{ borderRadius: 5, width: '100%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white' }} />
+              </div>
+            </Col>
+          </Row>
+          <Row style={{ marginTop: 20 }}>
+            <Col sm="6" md="6" lg="6" xl="6" >
+              <div><span style={{ color: 'white', fontSize: 20 }}>Shipping Information</span></div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"Profile Name"} style={{ borderRadius: 5, width: '100%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white' }} />
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"First Name"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginRight: '5%' }} />
+                <input placeholder={"Last Name"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginLeft: '5%' }} />
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"Email"} style={{ borderRadius: 5, width: '100%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white' }} />
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"Phone Number"} style={{ borderRadius: 5, width: '100%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white' }} />
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"Address1"} style={{ borderRadius: 5, width: '100%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white' }} />
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"Address2"} style={{ borderRadius: 5, width: '100%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white' }} />
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"City"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginRight: '5%' }} />
+                <input placeholder={"Zip Code"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginLeft: '5%' }} />
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"Sate"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginRight: '5%' }} />
+                <input placeholder={"Country"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginLeft: '5%' }} />
               </div>
             </Col>
             <Col sm="6" md="6" lg="6" xl="6" >
-
-            </Col>
-          </Row>
-          <Row>
-            <Col sm="6" md="6" lg="6" xl="6" >
-
-            </Col>
-            <Col sm="6" md="6" lg="6" xl="6" >
-
+              <div><span style={{ color: 'white', fontSize: 20 }}>Billing Information</span></div>
+              <div style={{ width: '100%', marginTop: 10, display:'flex', flexDirection:'row', alignItems:'center'}}>
+                <input type="checkbox" className="custom-checkbox" />
+                <span style={{fontSize:16, marginLeft:20}}>Billing same as Shipping</span>
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"First Name"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginRight: '5%' }} />
+                <input placeholder={"Last Name"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginLeft: '5%' }} />
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"Email"} style={{ borderRadius: 5, width: '100%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white' }} />
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"Phone Number"} style={{ borderRadius: 5, width: '100%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white' }} />
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"Address1"} style={{ borderRadius: 5, width: '100%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white' }} />
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"Address2"} style={{ borderRadius: 5, width: '100%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white' }} />
+              </div>
+               <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"City"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginRight: '5%' }} />
+                <input placeholder={"Zip Code"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginLeft: '5%' }} />
+              </div>
+              <div style={{ width: '100%', marginTop: 10 }}>
+                <input placeholder={"Sate"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginRight: '5%' }} />
+                <input placeholder={"Country"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginLeft: '5%' }} />
+              </div>
             </Col>
           </Row>
         </Col>
         <Col sm="12" md="12" lg="12" xl="4" >
           <span style={{ fontSize: 25 }}>Profiles</span>
-          <div style={{ overflow: 'auto', maxHeight: 'calc(100vh - 220px)' }}>
+          <div style={{ overflow: 'auto', maxHeight: 'calc(100vh - 240px)' }}>
             {getList()}
           </div>
         </Col>
