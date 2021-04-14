@@ -216,8 +216,10 @@ a:hover{text-decoration: none;}
 /*---------------------------------------------------------------------
                                 Sidebar
 -----------------------------------------------------------------------*/
-.iq-sidebar { position: fixed; z-index: 999; left:0; top: 0; width: 260px; overflow: hidden; height: 100%; background: #1e2128; transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out; -webkit-box-shadow: 0px 0px 25px 0px rgba(45, 69, 95, 0.1); -moz-box-shadow: 0px 0px 25px 0px rgba(45, 69, 95, 0.1); box-shadow: 0px 0px 25px 0px rgba(45, 69, 95, 0.1); }
-.iq-sidebar .iq-sidebar-logo { float: none; width: 100%; }
+.iq-sidebar { position: fixed; z-index: 999; top: 0; width: 260px; overflow: hidden; height: 100%; background: #1e2128; transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out; -webkit-box-shadow: 0px 0px 25px 0px rgba(45, 69, 95, 0.1); -moz-box-shadow: 0px 0px 25px 0px rgba(45, 69, 95, 0.1); box-shadow: 0px 0px 25px 0px rgba(45, 69, 95, 0.1); }
+.iq-sidebar .iq-sidebar-logo { float: none; width: 100%; display: flex; flex-direction: row; align-items: center; margin-top: 30px;}
+.iq-sidebar .iq-sidebar-logo .logo-meta{ display: flex; flex-direction: column; margin-left: 30px;}
+.iq-sidebar .iq-sidebar-logo .logo-meta .logo-name {font-size: 20px; color: white;}
 .iq-sidebar #sidebar-scrollbar { margin-top: 15px; }
 
 /*---------------------------------------------------------------------
@@ -232,7 +234,7 @@ a:hover{text-decoration: none;}
 .iq-sidebar-menu { position: relative; }
 .iq-sidebar-menu .iq-menu { margin: 0; padding: 0; list-style-type: none; }
 .iq-sidebar-menu .iq-menu li { list-style-type: none; }
-.iq-sidebar-menu .iq-menu li a { font-size: 14px; white-space: nowrap; display: block; border-radius: 5px; color: #fff; background: #242632; position: relative; width: 90%; padding: 15px 20px 15px 30px; line-height: 18px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; overflow: hidden; }
+.iq-sidebar-menu .iq-menu li a { font-size: 14px; white-space: nowrap; display: block; border-radius: 5px; color: #fff; background: #242632; position: relative; margin: 10px; padding: 15px 20px 15px 30px; line-height: 18px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; overflow: hidden; }
 .iq-sidebar-menu .iq-menu li>a::before { transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out; content: ""; width: 3px; height: 0; display: inline-block; background: #0084ff; position: absolute; top: 0; right: 0; opacity: 1; }
 .iq-sidebar-menu .iq-menu li.active>a::before { opacity: 1; height: 100%; }
 .iq-sidebar-menu .iq-menu li a i { font-size: 20px; margin-right: 10px; vertical-align: middle; width: 20px; display: inline-block; float: left; }
@@ -240,10 +242,12 @@ a:hover{text-decoration: none;}
 .iq-sidebar-menu .iq-menu li a .iq-arrow-right { margin-right: 0; margin-left: auto; transition: all 0.3s ease-in-out; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out; }
 .iq-sidebar-menu .iq-menu li a .badge { position: absolute; right: 15px; -webkit-transition: all 0.9s ease-out 0s; -moz-transition: all 0.9s ease-out 0s; -ms-transition: all 0.9s ease-out 0s; -o-transition: all 0.9s ease-out 0s; transition: all 0.9s ease-out 0s; }
 .iq-sidebar-menu .iq-menu li.active { border-bottom: none; }
-.iq-sidebar-menu .iq-menu li a:hover, .iq-sidebar-menu .iq-menu li.active>a, .iq-sidebar-menu .iq-menu li>a.active, .iq-sidebar-menu .iq-menu li.menu-open>a { color: #fff; background: #375dad; text-decoration: none; }
+.iq-sidebar-menu .iq-menu li .iq-sidebar-menu .iq-menu li.active>a, .iq-sidebar-menu .iq-menu li>a.active, .iq-sidebar-menu .iq-menu li.menu-open>a { color: #fff; background: #375dad; text-decoration: none; }
 .iq-sidebar-menu .iq-menu li.active .iq-arrow-right { transform: rotate(90deg); }
 .iq-sidebar-menu .iq-menu li .iq-submenu li a:hover, .iq-sidebar-menu .iq-menu li.active .iq-submenu li>a { background: transparent; }
 .iq-sidebar-menu .iq-menu li .iq-submenu li>a::before { display: none; }
+
+.iq-sidebar-menu .iq-menu li a:hover { color: #fff; background: #32213b; text-decoration: none; }
 
 /*------------------------*/
 .iq-sidebar-menu .iq-menu li ul { display: none; padding-left: 40px; }
@@ -341,7 +345,7 @@ a:hover{text-decoration: none;}
 /*---------------------------------------------------------------------
                               Content Page
 -----------------------------------------------------------------------*/
-.content-page { margin-left: 260px; overflow: hidden; padding: 100px 15px 0; min-height: 100vh; -webkit-transition: all 0.3s ease-out 0s; -moz-transition: all 0.3s ease-out 0s; -ms-transition: all 0.3s ease-out 0s; -o-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s; }
+.content-page {margin-left: 260px; overflow: hidden; padding: 0px 15px 0; min-height: 100vh; -webkit-transition: all 0.3s ease-out 0s; -moz-transition: all 0.3s ease-out 0s; -ms-transition: all 0.3s ease-out 0s; -o-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s; }
 .iq-user-dropdown { width: 350px; }
 body.sidebar-main .content-page, body.sidebar-main .iq-footer { margin-left: 80px; }
 body.sidebar-main .iq-sidebar-logo { width: 80px; }

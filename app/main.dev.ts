@@ -44,9 +44,9 @@ const createWindow = async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 768,
-    resizable: false,
+    minWidth: 1024,
+    minHeight: 768,
+    // resizable: false,
     webPreferences: {
       nodeIntegration: true,
       webSecurity: false,
@@ -74,20 +74,21 @@ const createWindow = async () => {
   });
 
   mainWindow.on('close', async (e) => {
-    const response = dialog.showMessageBoxSync(mainWindow, {
-      type: 'question',
-      buttons: ['Yes', 'No'],
-      title: 'Confirm',
-      message: 'Are you sure you want to quit?',
-    });
-    if (response === 1) {
-      e.preventDefault();
-    }
+    // const response = dialog.showMessageBoxSync(mainWindow, {
+    //   type: 'question',
+    //   buttons: ['Yes', 'No'],
+    //   title: 'Confirm',
+    //   message: 'Are you sure you want to quit?',
+    // });
+    // if (response === 1) {
+    //   e.preventDefault();
+    // }
   });
 
   // const menuBuilder = new MenuBuilder(mainWindow);
   // menuBuilder.buildMenu();
   mainWindow.removeMenu();
+  mainWindow.maximize();
 };
 
 /**

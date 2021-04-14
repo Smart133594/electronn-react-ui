@@ -13,7 +13,7 @@ export default function Routes() {
       <Switch>
         <Route path={routes.TASK} component={TaskPage} />
         <Route path={routes.DASHBOARD} component={DashboardPage} />
-        <Route path={routes.DEFAULT} component={DashboardPage} />
+        <Route path={routes.HOMEPAGE} component={DashboardPage} />
       </Switch>
     </App>
   );
