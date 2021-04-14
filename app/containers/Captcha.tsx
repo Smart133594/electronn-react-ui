@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Box, Slider, TextField } from '@material-ui/core';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -39,39 +39,54 @@ export default function CaptchaPage() {
     },
   }))(InputBase);
 
-  const getList = () => {
-    var indents = [];
-    for (var i = 0; i < 30; i++) {
-      indents.push(
-        <Col sm="6" md="6" lg="6" xl="3" >
-          <Card style={{backgroundColor: '#1e2128', margin:10}} key={i + "index"}>
-            <CardBody style={{padding:15}}>
-              <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
-                <span style={{color:'white', fontSize:15}}>Ibra Main Solver</span>
-                <i style={{color:'white', fontSize:20}} className="fa fa-times"/>
-              </div>
-              <div>
-                <span style={{color:'#375dad'}}>Active</span>
-              </div>
-              <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:15}}>
-                <NativeSelect input={<BootstrapInput />} style={{width:200}}>
-                  <option value={10}>Checkouts</option>
-                  <option value={20}>Checkouts2</option>
-                  <option value={30}>Checkouts3</option>
-                  <option value={40}>Checkouts4</option>
-                </NativeSelect>
-                <i className="fa fa-external-link" style={{color:'white', fontSize:20, backgroundColor:'#375dad', padding:'10px 20px', borderRadius:5}} />
-              </div>
-              <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:15}}>
-                <input value={"122.121.144.113:21283..."} style={{borderRadius:5, width:200, height:40, backgroundColor:'#242632', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white',}}>
-                </input>
-                <i className="fa fa-youtube-play" style={{color:'white', fontSize:20, backgroundColor:'#f04f53', padding:'10px 20px', borderRadius:5}} />
-              </div>
-            </CardBody>
-          </Card>
-        </Col>);
+  const [solvers, setSolvers] = useState([]);
+
+  const addCaptcha = () =>{
+    var solver = {
+
     }
-    return indents;
+    var arr = [solvers, solver];
+    setSolvers(prev => [...prev, arr]);
+  }
+
+  const removeSolver = (index) =>{
+    var temp = solvers
+    temp.splice(index, 1);
+    setSolvers(prev => [...temp]);
+  }
+
+  const renderSolvers = () => {
+    var render = solvers.map((item, index) => {
+      return (<Col sm="6" md="6" lg="6" xl="3" >
+      <Card style={{backgroundColor: '#1e2128', margin:10}} key={index + "index"}>
+        <CardBody style={{padding:15}}>
+          <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
+            <span style={{color:'white', fontSize:15}}>Ibra Main Solver</span>
+            <i style={{color:'white', fontSize:20}} className="fa fa-times" onClick={()=>removeSolver(index)}/>
+          </div>
+          <div>
+            <span style={{color:'#375dad'}}>Active</span>
+          </div>
+          <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:15}}>
+            <NativeSelect input={<BootstrapInput />} style={{width:200}}>
+              <option value={10}>Checkouts</option>
+              <option value={20}>Checkouts2</option>
+              <option value={30}>Checkouts3</option>
+              <option value={40}>Checkouts4</option>
+            </NativeSelect>
+            <i className="fa fa-external-link" style={{color:'white', fontSize:20, backgroundColor:'#375dad', padding:'10px 20px', borderRadius:5}} />
+          </div>
+          <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:15}}>
+            <input value={"122.121.144.113:21283..."} style={{borderRadius:5, width:200, height:40, backgroundColor:'#242632', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white',}}>
+            </input>
+            <i className="fa fa-youtube-play" style={{color:'white', fontSize:20, backgroundColor:'#f04f53', padding:'10px 20px', borderRadius:5}} />
+          </div>
+        </CardBody>
+      </Card>
+    </Col>)
+    })
+
+    return render;
   }
 
   return (
@@ -102,14 +117,14 @@ export default function CaptchaPage() {
               </div>
             </form>
           </div>
-          <Button style={{ backgroundColor: '#375dad', border: 'none', height: 40 }} size="lg" block className={"font-size-16"}>
+          <Button style={{ backgroundColor: '#375dad', border: 'none', height: 40 }} size="lg" block className={"font-size-16"} onClick={addCaptcha}>
             <i className={"fa fa-plus mr-2"} />
             New Solver
           </Button>
         </div>
       </div>
       <Row style={{marginTop:10}}>
-        {getList()}
+        {renderSolvers()}
       </Row>
       <div style={{
         display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',

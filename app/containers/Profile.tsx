@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Box, Slider, TextField } from '@material-ui/core';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -38,25 +38,40 @@ export default function ProfilePage() {
     },
   }))(InputBase);
 
-  const getList = () => {
-    var indents = [];
-    for (var i = 0; i < 30; i++) {
-      indents.push(
-        <Card style={{ marginLeft: 0, margin: 20, backgroundColor: '#1e2128', padding: 10 }} key={i + "index"}>
-          <CardBody style={{ padding: 0, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
-            <div style={{ flexDirection: 'column', display: 'flex' }}>
-              <span style={{ color: 'white' }}>Main</span>
-              <span>Ends in 0419</span>
-            </div>
-            <div style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', fontSize: 18 }}>
-              <i className="fa fa-copy mr-4" style={{ color: '#375dad' }} />
-              <i className="fa fa-pencil mr-4" style={{ color: '#61646b' }} />
-              <i className="fa fa-trash" style={{ color: '#ddd' }} />
-            </div>
-          </CardBody>
-        </Card>);
+  const [profiles, setProfiles] = useState([]);
+
+  const addProfile = () => {
+    var profile = {
+
     }
-    return indents;
+    var arr = [profiles, profile];
+    setProfiles(prev => [...prev, arr]);
+  }
+
+  const removeProfile = (index) => {
+    var temp = profiles
+    temp.splice(index, 1);
+    setProfiles(prev => [...temp]);
+  }
+
+  const renderProfiles = () => {
+    var render = profiles.map((item, index) => {
+      return (<Card style={{ marginLeft: 0, margin: 20, backgroundColor: '#1e2128', padding: 10 }} key={index + "index"}>
+        <CardBody style={{ padding: 0, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
+          <div style={{ flexDirection: 'column', display: 'flex' }}>
+            <span style={{ color: 'white' }}>Main</span>
+            <span>Ends in 0419</span>
+          </div>
+          <div style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', fontSize: 18 }}>
+            <i className="fa fa-copy mr-4" style={{ color: '#375dad' }} />
+            <i className="fa fa-pencil mr-4" style={{ color: '#61646b' }} />
+            <i className="fa fa-trash" style={{ color: '#ddd' }} onClick={()=>removeProfile(index)} />
+          </div>
+        </CardBody>
+      </Card>)
+    })
+
+    return render;
   }
 
 
@@ -93,7 +108,7 @@ export default function ProfilePage() {
               </div>
             </form>
           </div>
-          <Button style={{ backgroundColor: '#375dad', border: 'none', height: 40 }} size="lg" block className={"font-size-16"}>
+          <Button style={{ backgroundColor: '#375dad', border: 'none', height: 40 }} size="lg" block className={"font-size-16"} onClick={addProfile}>
             <i className={"fa fa-plus mr-2"} />
             New Profile
           </Button>
@@ -172,9 +187,9 @@ export default function ProfilePage() {
             </Col>
             <Col sm="6" md="6" lg="6" xl="6" >
               <div><span style={{ color: 'white', fontSize: 20 }}>Billing Information</span></div>
-              <div style={{ width: '100%', marginTop: 10, display:'flex', flexDirection:'row', alignItems:'center'}}>
+              <div style={{ width: '100%', marginTop: 10, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                 <input type="checkbox" className="custom-checkbox" />
-                <span style={{fontSize:16, marginLeft:20}}>Billing same as Shipping</span>
+                <span style={{ fontSize: 16, marginLeft: 20 }}>Billing same as Shipping</span>
               </div>
               <div style={{ width: '100%', marginTop: 10 }}>
                 <input placeholder={"First Name"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginRight: '5%' }} />
@@ -192,7 +207,7 @@ export default function ProfilePage() {
               <div style={{ width: '100%', marginTop: 10 }}>
                 <input placeholder={"Address2"} style={{ borderRadius: 5, width: '100%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white' }} />
               </div>
-               <div style={{ width: '100%', marginTop: 10 }}>
+              <div style={{ width: '100%', marginTop: 10 }}>
                 <input placeholder={"City"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginRight: '5%' }} />
                 <input placeholder={"Zip Code"} style={{ borderRadius: 5, width: '45%', height: 40, backgroundColor: '#1e2128', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white', marginLeft: '5%' }} />
               </div>
@@ -206,7 +221,7 @@ export default function ProfilePage() {
         <Col sm="12" md="12" lg="12" xl="4" >
           <span style={{ fontSize: 25 }}>Profiles</span>
           <div style={{ overflow: 'auto', maxHeight: 'calc(100vh - 240px)' }}>
-            {getList()}
+            {renderProfiles()}
           </div>
         </Col>
       </Row>
