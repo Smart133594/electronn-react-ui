@@ -77,8 +77,7 @@ export default function TaskPage() {
           </Button>
         </div>
       </div>
-
-      <div style={{padding: 10}} >
+      <div style={{padding: 10, paddingBottom:0}} >
         <div style={{backgroundColor:'#1e1f24', borderRadius:5, marginTop:5, marginBottom:20,
                     padding:'10px 10px', width:'100%', color:'white', display:'flex', flexDirection:'row'}}>
           <span style={{width:'17%'}}>Store</span>
@@ -88,7 +87,7 @@ export default function TaskPage() {
           <span style={{width:'25%'}}>Status</span>
           <span style={{width:'11%'}}>Action</span>
         </div>
-        <div style={{overflow:'auto', maxHeight:'calc(100vh - 265px)'}}>
+        <div style={{overflow:'auto', maxHeight:'calc(100vh - 250px)'}}>
           <div style={{backgroundColor:'#1e2128', borderRadius:5, marginTop:5, marginBottom:5,
                       padding:'5px 10px', width:'100%', display:'flex', flexDirection:'row', alignItems:'center', fontSize:12}}>
             <div style={{display:'flex', flexDirection:'column', width:'17%'}}>
@@ -540,6 +539,16 @@ export default function TaskPage() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div style={{ display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center',
+        position:'absolute', bottom:10, left:0, right:0, margin:'auto', zIndex:999, fontSize:20, color:'white',
+        borderRadius:20,  width:300, backgroundColor:'#33394880', padding:'0px 20px'}}>
+          <i className="ion-play"/>
+          <i className="ion-pause"/>
+          <i className="fa fa-pencil"/>
+          <i className="fa fa-trash"/>
+          <i className="fa fa-copy"/>
       </div>
     </>
   );
