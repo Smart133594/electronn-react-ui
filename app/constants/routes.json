@@ -1,5 +1,8 @@
 {
+
+  "CAPTCHA": "/captcha",
   "DASHBOARD": "/dashboard",
   "TASK": "/task",
+  "PROFILE": "/profile",
   "HOMEPAGE": "/"
 }

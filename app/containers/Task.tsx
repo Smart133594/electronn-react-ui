@@ -56,7 +56,7 @@ export default function TaskPage() {
           <span style={{ backgroundColor: '#192231', padding: '10px 15px', borderRadius: 5 }}>400</span>
           <span style={{ color: 'white', marginLeft: 10 }}>Tasks</span>
 
-          <span style={{ backgroundColor: '#192231', padding: '10px 15px', borderRadius: 5, marginLeft: 40 }}>0</span>
+          <span style={{ backgroundColor: '#192231', padding: '10px 15px', borderRadius: 5, marginLeft: 20 }}>0</span>
           <span style={{ color: 'white', marginLeft: 10 }}>Tasks Selected</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
@@ -87,7 +87,7 @@ export default function TaskPage() {
           <span style={{width:'25%'}}>Status</span>
           <span style={{width:'11%'}}>Action</span>
         </div>
-        <div style={{overflow:'auto', maxHeight:'calc(100vh - 250px)'}}>
+        <div style={{overflow:'auto', maxHeight:'calc(100vh - 255px)'}}>
           <div style={{backgroundColor:'#1e2128', borderRadius:5, marginTop:5, marginBottom:5,
                       padding:'5px 10px', width:'100%', display:'flex', flexDirection:'row', alignItems:'center', fontSize:12}}>
             <div style={{display:'flex', flexDirection:'column', width:'17%'}}>
@@ -540,9 +540,8 @@ export default function TaskPage() {
           </div>
         </div>
       </div>
-
       <div style={{ display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center',
-        position:'absolute', bottom:10, left:0, right:0, margin:'auto', zIndex:999, fontSize:20, color:'white',
+        position:'fixed', bottom:10, left:0, right:0, margin:'auto', zIndex:999, fontSize:20, color:'white',
         borderRadius:20,  width:300, backgroundColor:'#33394880', padding:'0px 20px'}}>
           <i className="ion-play"/>
           <i className="ion-pause"/>
