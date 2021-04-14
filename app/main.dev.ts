@@ -46,6 +46,7 @@ const createWindow = async () => {
     show: false,
     width: 1024,
     height: 768,
+    resizable: false,
     webPreferences: {
       nodeIntegration: true,
       webSecurity: false,

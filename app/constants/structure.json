@@ -10,7 +10,7 @@
   {
     "title": "Dashboard",
     "is_heading": false,
-    "is_active": true,
+    "is_active": false,
     "class_name": "",
     "is_icon_class": true,
     "icon": "ri-home-4-line",
@@ -27,7 +27,7 @@
   {
     "title": "Tasks",
     "is_heading": false,
-    "is_active": true,
+    "is_active": false,
     "class_name": "",
     "is_icon_class": true,
     "icon": "ri-pencil-ruler-line",
@@ -36,7 +36,7 @@
   {
     "title": "Captcha",
     "is_heading": false,
-    "is_active": true,
+    "is_active": false,
     "class_name": "",
     "is_icon_class": true,
     "icon": "ri-profile-line",
@@ -45,7 +45,7 @@
   {
     "title": "Proxies",
     "is_heading": false,
-    "is_active": true,
+    "is_active": false,
     "class_name": "",
     "is_icon_class": true,
     "icon": "ri-table-line",
@@ -54,7 +54,7 @@
   {
     "title": "Profiles",
     "is_heading": false,
-    "is_active": true,
+    "is_active": false,
     "class_name": "",
     "is_icon_class": true,
     "icon": "ri-pie-chart-box-line",
@@ -71,7 +71,7 @@
   {
     "title": "Settings",
     "is_heading": false,
-    "is_active": true,
+    "is_active": false,
     "class_name": "",
     "is_icon_class": true,
     "icon": "ri-pie-chart-box-line",

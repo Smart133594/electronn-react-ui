@@ -1,0 +1,30 @@
+/* Import for all css */
+
+@import "bootstrap.min.css"; /* Import for the custom css */
+@import "typography.css"; /* Import for the custom css */
+@import "custom.css"; /* Import for the custom css */
+@import "helper.css"; /* Import for the helper css  */
+
+@import "owl.carousel.min.css";
+/*@import "dripicons.css";*/
+@import "dripicons.css";
+@import "remixicon.css";
+@import "fontawesome.css";
+/*@import "line-awesome.min.css";*/
+@import "ionicons.min.css";
+@import "slick.css";
+@import "slick-theme.css";
+@import "Chart.min.css";
+@import "select2.min.css";
+@import "magnific-popup.css";
+@import "animate.css";
+@import "~react-loading-bar/dist/index.css";
+
+/*
+@media (max-width: 1299px) {
+    .iq-top-navbar .iq-navbar-custom .iq-menu-bt {
+        right: 350px;
+    }
+}*/
+
+

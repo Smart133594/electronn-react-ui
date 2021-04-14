@@ -2,6 +2,10 @@
  * @NOTE: Prepend a `~` to css file paths that are in your node_modules
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
+
+@import './assets/css/style.css';
+/* @import './assets/css/responsive.css'; */
+
 body {
   position: relative;
   color: white;
@@ -13,16 +17,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-.iq-sidebar { position: fixed; z-index: 999; top: 0; left:0; width: 260px;
-  overflow: hidden; height: 100%;
-  background: #1e2128;
-}
-.iq-sidebar .iq-sidebar-logo { float: none; width: 100%; margin-top: 30px;}
-
-.iq-sidebar .iq-sidebar-logo .logo-meta { float: none; width: 100%; margin-top: 30px;}
-
-.iq-sidebar #sidebar-scrollbar { margin-top: 15px; }
 
 button {
   background-color: white;

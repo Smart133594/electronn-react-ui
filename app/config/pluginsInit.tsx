@@ -1,16 +1,19 @@
-import $ from 'jquery';
+import { createLogger } from 'redux-logger';
+
 const getActiveLink = (item) => {
     let active = false;
+
     if (item.children !== undefined) {
         item.children.filter(function (person) {
             if (person.link === window.location.pathname) {
-                active = true;
+              active = true;
             }
         });
     }
+
     return active;
 };
 
 
-export {getActiveLink }
+export {getActiveLink}
 

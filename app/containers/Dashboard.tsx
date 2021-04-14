@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Button, Box, Slider, TextField, Input } from '@material-ui/core';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -12,6 +12,7 @@ export default function DashboardPage() {
   const goToTask = () => {
     dispatch(push(routes.TASK));
   };
+
   return (
     <>
       <Button

@@ -1,4 +1,5 @@
 {
-  "DASHBOARD": "/",
-  "TASK": "/task"
+  "DASHBOARD": "/dashboard",
+  "TASK": "/task",
+  "DEFAULT": "/"
 }

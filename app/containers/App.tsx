@@ -2,7 +2,8 @@ import React, { ReactNode } from 'react';
 import { SideBar } from '../components';
 import sideBarItems from '../constants/structure.json';
 
-import logoImage from '../assets/images/icon.png'
+import logoImage from '../assets/images/logo.png'
+
 
 type Props = {
   children: ReactNode;
@@ -11,7 +12,7 @@ type Props = {
 export default function App(props: Props) {
   const { children } = props;
   return <>
-    <div className="wrapper">
+    <div className="App">
       <SideBar
         items={sideBarItems}
         logo={logoImage}

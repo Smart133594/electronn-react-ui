@@ -17,6 +17,8 @@ class Index extends React.Component {
         this.setState({
           sideBarItems : this.props.items
         });
+
+
     }
 
     render() {
@@ -27,15 +29,8 @@ class Index extends React.Component {
                 <div className="iq-sidebar-logo d-flex justify-content-between">
                     <Link to={ homeUrl }>
                         <img src={ logo } className="img-fluid" alt="" />
-                        <span>Sofbox</span>
+                        <span>Viper</span>
                     </Link>
-                    <div className="iq-menu-bt align-self-center">
-                        <div className="wrapper-menu">
-                            <div className="line-menu half start" />
-                            <div className="line-menu" />
-                            <div className="line-menu half end" />
-                        </div>
-                    </div>
                 </div>
                 <div id="sidebar-scrollbar">
                     <nav className="iq-sidebar-menu">
