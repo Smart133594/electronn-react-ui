@@ -6,7 +6,7 @@ import routes from '../constants/routes.json';
 import { push } from 'connected-react-router';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import jQuery from "jquery";
-import { Card, CardBody, CardHeader, CardTitle, Col, Row, UncontrolledCollapse, Button, Input } from "reactstrap";
+import { Card, CardBody, CardHeader, Label, Col, Row, FormGroup, Button, Input, ModalHeader, Modal, ModalBody, ModalFooter} from "reactstrap";
 import { Image } from 'react-bootstrap';
 import { Avartar } from '../components';
 import ApexCharts from 'apexcharts'
@@ -40,13 +40,15 @@ export default function CaptchaPage() {
   }))(InputBase);
 
   const [solvers, setSolvers] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [newSolver, setNewSolver] = useState({
+    solver_name: '',
+    solver_ip: '',
+  });
 
-  const addCaptcha = () =>{
-    var solver = {
-
-    }
-    var arr = [solvers, solver];
-    setSolvers(prev => [...prev, arr]);
+  const addSolver = () =>{
+    setSolvers(prev => [...prev, newSolver]);
+    setShowModal(false);
   }
 
   const removeSolver = (index) =>{
@@ -57,18 +59,18 @@ export default function CaptchaPage() {
 
   const renderSolvers = () => {
     var render = solvers.map((item, index) => {
-      return (<Col sm="6" md="6" lg="6" xl="3" >
-      <Card style={{backgroundColor: '#1e2128', margin:10}} key={index + "index"}>
+      return (<Col sm="6" md="6" lg="6" xl="3" key={index + "index"}>
+      <Card style={{backgroundColor: '#1e2128', margin:10}} >
         <CardBody style={{padding:15}}>
           <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
-            <span style={{color:'white', fontSize:15}}>Ibra Main Solver</span>
+            <span style={{color:'white', fontSize:15}}>{item.solver_name}</span>
             <i style={{color:'white', fontSize:20}} className="fa fa-times" onClick={()=>removeSolver(index)}/>
           </div>
           <div>
             <span style={{color:'#375dad'}}>Active</span>
           </div>
           <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:15}}>
-            <NativeSelect input={<BootstrapInput />} style={{width:200}}>
+            <NativeSelect input={<BootstrapInput/>} style={{width:200}}>
               <option value={10}>Checkouts</option>
               <option value={20}>Checkouts2</option>
               <option value={30}>Checkouts3</option>
@@ -77,7 +79,7 @@ export default function CaptchaPage() {
             <i className="fa fa-external-link" style={{color:'white', fontSize:20, backgroundColor:'#375dad', padding:'10px 20px', borderRadius:5}} />
           </div>
           <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginTop:15}}>
-            <input value={"122.121.144.113:21283..."} style={{borderRadius:5, width:200, height:40, backgroundColor:'#242632', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white',}}>
+            <input value={item.solver_ip} readOnly style={{borderRadius:5, width:200, height:40, backgroundColor:'#242632', border: '1px solid #777D74', fontSize: 16, padding: '10px 26px 10px 12px', color: 'white',}}>
             </input>
             <i className="fa fa-youtube-play" style={{color:'white', fontSize:20, backgroundColor:'#f04f53', padding:'10px 20px', borderRadius:5}} />
           </div>
@@ -87,6 +89,29 @@ export default function CaptchaPage() {
     })
 
     return render;
+  }
+
+  const isToggle = () => {
+    var solver = {
+      solver_name: '',
+      solver_ip: '',
+    }
+    setNewSolver(solver);
+    setShowModal(!showModal);
+  }
+
+  const setValue = (key, event) => {
+    var temp = newSolver;
+    temp[key] =  event.target.value;
+    setNewSolver({...newSolver, temp});
+  }
+
+  const getValue = (key) => {
+    if(newSolver[key] == 'undefined' || newSolver[key] == undefined){
+      return "";
+    }
+    console.log("solvers", solvers);
+    return newSolver[key];
   }
 
   return (
@@ -117,10 +142,29 @@ export default function CaptchaPage() {
               </div>
             </form>
           </div>
-          <Button style={{ backgroundColor: '#375dad', border: 'none', height: 40 }} size="lg" block className={"font-size-16"} onClick={addCaptcha}>
+          <Button style={{ backgroundColor: '#375dad', border: 'none', height: 40 }} size="lg" block className={"font-size-16"} onClick={isToggle}>
             <i className={"fa fa-plus mr-2"} />
             New Solver
           </Button>
+
+          <Modal isOpen={showModal} className="modal-dialog-centered">
+            <ModalHeader >New Solver</ModalHeader>
+            <ModalBody>
+              <FormGroup>
+                <Label>Solver Name</Label>
+                <Input className={"form-control"} value={getValue('solver_name')} onChange={(event) => setValue("solver_name", event)} />
+              </FormGroup>
+              <FormGroup>
+                <Label>Solver IP</Label>
+                <Input className={"form-control"} value={getValue('solver_ip')} onChange={(event) => setValue("solver_ip", event)} />
+              </FormGroup>
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={addSolver}>Save</Button>{' '}
+              <Button color="secondary" onClick={isToggle}>Cancel</Button>
+            </ModalFooter>
+          </Modal>
+
         </div>
       </div>
       <Row style={{marginTop:10}}>

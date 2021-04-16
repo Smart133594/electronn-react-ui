@@ -6,7 +6,7 @@ import routes from '../constants/routes.json';
 import { push } from 'connected-react-router';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import jQuery from "jquery";
-import { Card, CardBody, CardHeader, CardTitle, Col, Row, UncontrolledCollapse, Button, Input } from "reactstrap";
+import { Card, CardBody, CardHeader, Label, Col, Row, FormGroup, Button, Input, ModalHeader, Modal, ModalBody, ModalFooter } from "reactstrap";
 import { Image } from 'react-bootstrap';
 import { Avartar } from '../components';
 import ApexCharts from 'apexcharts'
@@ -41,22 +41,23 @@ export default function TaskPage() {
   }))(InputBase);
 
   const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState({
+    store_name: '',
+    store_meta: '',
+    product_name: '',
+    product_meta: '',
+    profile: '',
+    proxies: '',
+    state: 'Successful Checkout'
+  });
+  const [showModal, setShowModal] = useState(false);
 
   const addTask = () => {
-    var task = {
-      store_name: 'Footlocker CA',
-      store_meta: 'Restock Mode',
-      product_name: 'Air Jordan 1 University',
-      product_meta: 'Size 9.5',
-      profile: 'ibra',
-      proxies: 'proxies',
-      state: 'Successful Checkout',
-    }
-    var arr = [tasks, task];
-    setTasks(prev => [...prev, task]);
+    setTasks(prev => [...prev, newTask]);
+    setShowModal(false);
   }
 
-  const removeTask = (index) =>{
+  const removeTask = (index) => {
     var temp = tasks
     temp.splice(index, 1);
     setTasks(prev => [...temp]);
@@ -64,7 +65,7 @@ export default function TaskPage() {
 
   const renderTasks = () => {
     var render = tasks.map((item, index) => {
-      return (<div key={index+"index"} style={{
+      return (<div key={index + "index"} style={{
         backgroundColor: '#1e2128', borderRadius: 5, marginTop: 5, marginBottom: 5,
         padding: '5px 10px', width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', fontSize: 12
       }}>
@@ -88,12 +89,39 @@ export default function TaskPage() {
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '11%', fontSize: 16 }}>
           <i className="ion-play mr-3" style={{ color: '#6ed19e' }} />
           <i className="fa fa-pencil mr-3" style={{ color: '#61646b' }} />
-          <i className="fa fa-trash mr-3" style={{ color: '#ddd' }} onClick={()=>removeTask(index)} />
+          <i className="fa fa-trash mr-3" style={{ color: '#ddd' }} onClick={() => removeTask(index)} />
         </div>
       </div>)
     })
 
     return render;
+  }
+
+  const isToggle = () => {
+    var task = {
+      store_name: '',
+      store_meta: '',
+      product_name: '',
+      product_meta: '',
+      profile: '',
+      proxies: '',
+      state: 'Successful Checkout',
+    }
+    setNewTask(task);
+    setShowModal(!showModal);
+  }
+
+  const setValue = (key, event) => {
+    var temp = newTask;
+    temp[key] =  event.target.value;
+    setNewTask({...newTask, temp});
+  }
+
+  const getValue = (key) => {
+    if(newTask[key] == 'undefined' || newTask[key] == undefined){
+      return "";
+    }
+    return newTask[key];
   }
 
   return (
@@ -130,10 +158,45 @@ export default function TaskPage() {
             </form>
           </div>
           <Button style={{ backgroundColor: '#375dad', border: 'none', height: 40 }} size="lg" block className={"font-size-16"}
-            onClick={addTask}>
+            onClick={isToggle}>
             <i className={"fa fa-plus mr-2"} />
             New Tasks
           </Button>
+
+          <Modal isOpen={showModal} className="modal-dialog-centered">
+            <ModalHeader >New Task</ModalHeader>
+            <ModalBody>
+              <FormGroup>
+                <Label>Store</Label>
+                <Input className={"form-control"} value={getValue('store_name')} onChange={(event) => setValue("store_name", event)} />
+              </FormGroup>
+              <FormGroup>
+                <Label>Store Meta</Label>
+                <Input className={"form-control"} value={getValue('store_meta')} onChange={(event) => setValue("store_meta", event)} />
+              </FormGroup>
+              <FormGroup>
+                <Label>Product</Label>
+                <Input className={"form-control"} value={getValue('product_name')} onChange={(event) => setValue("product_name", event)} />
+              </FormGroup>
+              <FormGroup>
+                <Label>Product Meta</Label>
+                <Input className={"form-control"} value={getValue('product_meta')} onChange={(event) => setValue("product_meta", event)} />
+              </FormGroup>
+              <FormGroup>
+                <Label>Profile</Label>
+                <Input className={"form-control"} value={getValue('profile')} onChange={(event) => setValue("profile", event)} />
+              </FormGroup>
+              <FormGroup>
+                <Label>Proxies</Label>
+                <Input className={"form-control"} value={getValue('proxies')} onChange={(event) => setValue("proxies", event)} />
+              </FormGroup>
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={addTask}>Save</Button>{' '}
+              <Button color="secondary" onClick={isToggle}>Cancel</Button>
+            </ModalFooter>
+          </Modal>
+
         </div>
       </div>
       <div style={{ padding: 10, paddingBottom: 0 }} >

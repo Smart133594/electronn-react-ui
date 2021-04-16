@@ -6,7 +6,7 @@ import routes from '../constants/routes.json';
 import { push } from 'connected-react-router';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import jQuery from "jquery";
-import { Card, CardBody, CardHeader, CardTitle, Col, Row, UncontrolledCollapse, Button, Input } from "reactstrap";
+import { Card, CardBody, CardHeader, Label, Col, Row, FormGroup, Button, Input, ModalHeader, Modal, ModalBody, ModalFooter } from "reactstrap";
 import { Image } from 'react-bootstrap';
 import { Avartar } from '../components';
 import ApexCharts from 'apexcharts'
@@ -39,13 +39,14 @@ export default function ProfilePage() {
   }))(InputBase);
 
   const [profiles, setProfiles] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [newProfile, setNewProfile] = useState({
+
+  });
 
   const addProfile = () => {
-    var profile = {
-
-    }
-    var arr = [profiles, profile];
-    setProfiles(prev => [...prev, arr]);
+    setProfiles(prev => [...prev, newProfile]);
+    setShowModal(false)
   }
 
   const removeProfile = (index) => {
@@ -54,13 +55,35 @@ export default function ProfilePage() {
     setProfiles(prev => [...temp]);
   }
 
+  const isToggle = () => {
+    var solver = {
+      solver_name: '',
+      solver_ip: '',
+    }
+    setNewProfile(solver);
+    setShowModal(!showModal);
+  }
+
+  const setValue = (key, event) => {
+    var temp = newProfile;
+    temp[key] =  event.target.value;
+    setNewProfile({...newProfile, temp});
+  }
+
+  const getValue = (key) => {
+    if(newProfile[key] == 'undefined' || newProfile[key] == undefined){
+      return "";
+    }
+    return newProfile[key];
+  }
+
   const renderProfiles = () => {
     var render = profiles.map((item, index) => {
       return (<Card style={{ marginLeft: 0, margin: 20, backgroundColor: '#1e2128', padding: 10 }} key={index + "index"}>
         <CardBody style={{ padding: 0, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
           <div style={{ flexDirection: 'column', display: 'flex' }}>
-            <span style={{ color: 'white' }}>Main</span>
-            <span>Ends in 0419</span>
+            <span style={{ color: 'white' }}>{item.card_name}</span>
+            <span>{item.card_expire}</span>
           </div>
           <div style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', fontSize: 18 }}>
             <i className="fa fa-copy mr-4" style={{ color: '#375dad' }} />
@@ -108,10 +131,29 @@ export default function ProfilePage() {
               </div>
             </form>
           </div>
-          <Button style={{ backgroundColor: '#375dad', border: 'none', height: 40 }} size="lg" block className={"font-size-16"} onClick={addProfile}>
+          <Button style={{ backgroundColor: '#375dad', border: 'none', height: 40 }} size="lg" block className={"font-size-16"} onClick={isToggle}>
             <i className={"fa fa-plus mr-2"} />
             New Profile
           </Button>
+
+          <Modal isOpen={showModal} className="modal-dialog-centered">
+            <ModalHeader >New Solver</ModalHeader>
+            <ModalBody>
+              <FormGroup>
+                <Label>Name</Label>
+                <Input className={"form-control"} value={getValue('card_name')} onChange={(event) => setValue("card_name", event)} />
+              </FormGroup>
+              <FormGroup>
+                <Label>Expired Date</Label>
+                <Input className={"form-control"} value={getValue('card_expire')} onChange={(event) => setValue("card_expire", event)} />
+              </FormGroup>
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={addProfile}>Save</Button>{' '}
+              <Button color="secondary" onClick={isToggle}>Cancel</Button>
+            </ModalFooter>
+          </Modal>
+
         </div>
       </div>
 
