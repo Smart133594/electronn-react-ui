@@ -163,8 +163,8 @@ export default function TaskPage() {
             New Tasks
           </Button>
 
-          <Modal isOpen={showModal} className="modal-dialog-centered">
-            <ModalHeader >New Task</ModalHeader>
+          <Modal isOpen={showModal} className="modal-dialog-centered modal-xl" >
+            <ModalHeader>New Task</ModalHeader>
             <ModalBody>
               <FormGroup>
                 <Label>Store</Label>

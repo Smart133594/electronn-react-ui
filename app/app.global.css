@@ -81,3 +81,37 @@ body {
 .MuiNativeSelect-select:not([multiple]) option, .MuiNativeSelect-select:not([multiple]) optgroup{
   background-color: #242632 !important;
 }
+
+
+.modal-content{
+  background-color: #1a1b20;
+}
+
+.modal-content .modal-header {
+  border-bottom: none;
+}
+
+.modal-content .form-group{
+  border:'1px solid #777D74';
+}
+
+.modal-content .form-group label{
+  color: white;
+}
+
+.modal-content .form-group input{
+  color: white;
+}
+
+.modal-content  .form-group .form-control{
+  background-color: #1e2128;
+  border:1px solid #777D74;
+}
+
+.modal-content .modal-footer {
+  border-top: none;
+}
+
+.modal-content .modal-header .modal-title{
+  color: white;
+}

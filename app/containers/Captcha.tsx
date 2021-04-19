@@ -147,7 +147,7 @@ export default function CaptchaPage() {
             New Solver
           </Button>
 
-          <Modal isOpen={showModal} className="modal-dialog-centered">
+          <Modal isOpen={showModal} className="modal-dialog-centered modal-xl">
             <ModalHeader >New Solver</ModalHeader>
             <ModalBody>
               <FormGroup>

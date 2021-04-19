@@ -66,12 +66,12 @@ export default function ProfilePage() {
 
   const setValue = (key, event) => {
     var temp = newProfile;
-    temp[key] =  event.target.value;
-    setNewProfile({...newProfile, temp});
+    temp[key] = event.target.value;
+    setNewProfile({ ...newProfile, temp });
   }
 
   const getValue = (key) => {
-    if(newProfile[key] == 'undefined' || newProfile[key] == undefined){
+    if (newProfile[key] == 'undefined' || newProfile[key] == undefined) {
       return "";
     }
     return newProfile[key];
@@ -88,7 +88,7 @@ export default function ProfilePage() {
           <div style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', fontSize: 18 }}>
             <i className="fa fa-copy mr-4" style={{ color: '#375dad' }} />
             <i className="fa fa-pencil mr-4" style={{ color: '#61646b' }} />
-            <i className="fa fa-trash" style={{ color: '#ddd' }} onClick={()=>removeProfile(index)} />
+            <i className="fa fa-trash" style={{ color: '#ddd' }} onClick={() => removeProfile(index)} />
           </div>
         </CardBody>
       </Card>)
@@ -136,17 +136,96 @@ export default function ProfilePage() {
             New Profile
           </Button>
 
-          <Modal isOpen={showModal} className="modal-dialog-centered">
+          <Modal isOpen={showModal} className="modal-dialog-centered modal-xl">
             <ModalHeader >New Solver</ModalHeader>
             <ModalBody>
               <FormGroup>
-                <Label>Name</Label>
+                <Label>Card Number</Label>
                 <Input className={"form-control"} value={getValue('card_name')} onChange={(event) => setValue("card_name", event)} />
               </FormGroup>
+              <Row>
+                <Col>
+                  <FormGroup>
+                    <Label>Card Month</Label>
+                    <Input className={"form-control"} />
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
+                    <Label>Card Year</Label>
+                    <Input className={"form-control"} />
+                  </FormGroup>
+                </Col>
+              </Row>
               <FormGroup>
-                <Label>Expired Date</Label>
-                <Input className={"form-control"} value={getValue('card_expire')} onChange={(event) => setValue("card_expire", event)} />
+                <Label>CVV</Label>
+                <Input className={"form-control"} />
               </FormGroup>
+
+              <Row>
+                <Col>
+                  <FormGroup>
+                    <Label>First Name</Label>
+                    <Input className={"form-control"} />
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
+                    <Label>Last Name</Label>
+                    <Input className={"form-control"} />
+                  </FormGroup>
+                </Col>
+              </Row>
+
+              <FormGroup>
+                <Label>Email</Label>
+                <Input className={"form-control"} />
+              </FormGroup>
+
+              <FormGroup>
+                <Label>Phone Number</Label>
+                <Input className={"form-control"} />
+              </FormGroup>
+
+              <FormGroup>
+                <Label>Address1</Label>
+                <Input className={"form-control"} />
+              </FormGroup>
+
+              <FormGroup>
+                <Label>Address2</Label>
+                <Input className={"form-control"} />
+              </FormGroup>
+
+              <Row>
+                <Col>
+                  <FormGroup>
+                    <Label>City</Label>
+                    <Input className={"form-control"} />
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
+                    <Label>Zip Code</Label>
+                    <Input className={"form-control"} />
+                  </FormGroup>
+                </Col>
+              </Row>
+
+              <Row>
+                <Col>
+                  <FormGroup>
+                    <Label>State</Label>
+                    <Input className={"form-control"} />
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
+                    <Label>Country</Label>
+                    <Input className={"form-control"} />
+                  </FormGroup>
+                </Col>
+              </Row>
             </ModalBody>
             <ModalFooter>
               <Button color="primary" onClick={addProfile}>Save</Button>{' '}
